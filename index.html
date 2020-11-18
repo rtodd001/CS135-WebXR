@@ -428,7 +428,17 @@
                          xrImmersiveRefSpace :
                          inlineViewerHelper.referenceSpace;
         let pose = frame.getViewerPose(refSpace);
+        // calculate distance between boxes
+        for (let i = 0; i < boxes.length; i++) {
+          for (let j = i+1; j < boxes.length; j++) {
+            // change color to white
+            if (vec3.distance(boxes[i].position,boxes[j].position) <= 0.25) {
+              boxes[i].renderPrimitive.uniforms.baseColorFactor.value = [255, 255, 255, 1.0];
+              boxes[j].renderPrimitive.uniforms.baseColorFactor.value = [255, 255, 255, 1.0];
+            }
 
+          }
+        }
         scene.startFrame();
 
         session.requestAnimationFrame(onXRFrame);
