@@ -297,6 +297,7 @@
         if (!targetRayPose) {
           return;
         }
+        let flag = false
 
         let hitResult = scene.hitTest(targetRayPose.transform);
         if (hitResult) {
@@ -308,11 +309,19 @@
               //grow the box temporarily
               box.scale = [1.25, 1.25, 1.25];
               box.selected = false;
+              flag = true
+              console.log("box hit")
             }
           }
         }
-
-        onSelect(ev);
+        if(flag){
+          onSelect(ev);
+        }
+        else{
+          let location = targetRayPose.transform.position
+          addBox(location.x ,location.y,location.z ,1.0, 0.0, 0.0)
+          console.log("test select ", targetRayPose.transform.position)
+        }
 
       }
 
