@@ -1,0 +1,35 @@
+SETUP
+
+WebXR is not a game engine. Use WebGL under the hood. Use another interface (three.js?) to interface with WebGL and provide camera view
+
+WebXR API emulator
+https://chrome.google.com/webstore/detail/webxr-api-emulator/mjddjgeghkdijejnciaefnkjmkafnnje/
+
+Types of WebXR interfaces
+- immersive-vr: put it onto headset
+- immersive-ar: not widely supported
+- inline: in the browser
+
+Everything in a 2x2 cube
+No concept of camera, modify the viewMatrix in the opposite direction
+
+
+Run a web server from Chrome
+https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/
+
+Logging
+console.log("selectstart " + currently_selected_boxes);
+Look at stuff in the console
+
+Documentation
+https://developer.mozilla.org/en-US/docs/Web/API/WebXR_Device_API
+
+WHAT TO DO
+
+
+1. Make the boxes stay after you release them
+
+2. If the two boxes are within 0.25 m of each other, change their colors to white
+
+Hints:
+box.node is an ID number
